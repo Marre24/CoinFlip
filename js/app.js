@@ -21,17 +21,14 @@ function handleFlipClick() {
 
   var isHeads = flipCoin();
 
-  // Always spin several full rotations for effect, landing on
-  // an even multiple of 360 for heads, or +180 for tails.
   var extraSpins = 4 * 360;
   var landingOffset = isHeads ? 0 : 180;
   currentRotation += extraSpins + landingOffset;
 
   coin.style.setProperty('--final-rotation', currentRotation + 'deg');
 
-  // Restart the animation each click
   coin.classList.remove('flipping');
-  void coin.offsetWidth; // force reflow so animation restarts
+  void coin.offsetWidth;
   coin.classList.add('flipping');
 
   coin.addEventListener('animationend', function onEnd() {
