@@ -11,18 +11,19 @@ var currentRotation = 0;
 
 function flipCoin() {
   var isHeads = Math.random() >= 0.5;
-  console.log(isHeads ? CoinSide.HEADS : CoinSide.TAILS);
-  return isHeads;
+  var result = isHeads ? CoinSide.HEADS : CoinSide.TAILS;
+  console.log(result);
+  return result;
 }
 
 function handleFlipClick() {
   button.disabled = true;
   resultText.textContent = 'Flipping...';
 
-  var isHeads = flipCoin();
+  var coinFlipResult = flipCoin();
 
   var extraSpins = 4 * 360;
-  var landingOffset = isHeads ? 0 : 180;
+  var landingOffset = coinFlipResult === CoinSide.HEADS ? 0 : 180;
   currentRotation += extraSpins + landingOffset;
 
   coin.style.setProperty('--final-rotation', currentRotation + 'deg');
@@ -34,7 +35,7 @@ function handleFlipClick() {
   coin.addEventListener('animationend', function onEnd() {
     coin.removeEventListener('animationend', onEnd);
     coin.style.transform = 'rotateY(' + currentRotation + 'deg)';
-    resultText.textContent = isHeads ? CoinSide.HEADS : CoinSide.TAILS;
+    resultText.textContent = coinFlipResult;
     button.disabled = false;
   });
 }
