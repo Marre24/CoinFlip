@@ -22,22 +22,9 @@ function handleFlipClick() {
 
   var coinFlipResult = flipCoin();
 
-  var extraSpins = 4 * 360;
-  var landingOffset = coinFlipResult === CoinSide.HEADS ? 0 : 180;
-  currentRotation += extraSpins + landingOffset;
+  resultText.textContent = coinFlipResult;
 
-  coin.style.setProperty('--final-rotation', currentRotation + 'deg');
-
-  coin.classList.remove('flipping');
-  void coin.offsetWidth;
-  coin.classList.add('flipping');
-
-  coin.addEventListener('animationend', function onEnd() {
-    coin.removeEventListener('animationend', onEnd);
-    coin.style.transform = 'rotateY(' + currentRotation + 'deg)';
-    resultText.textContent = coinFlipResult;
-    button.disabled = false;
-  });
+  button.disabled = false;
 }
 
 button.onclick = handleFlipClick;
