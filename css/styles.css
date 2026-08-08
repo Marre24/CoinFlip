@@ -41,10 +41,13 @@ button:not(:disabled):hover {
 
 @keyframes coinFlipAnimation {
   0% {
-    transform: rotateZ(0deg);
+    transform: translateY(0) rotateZ(0deg);
+  }
+  50% {
+    transform: translateY(-60px) rotateZ(720deg);
   }
   100% {
-    transform: rotateZ(1440deg);
+    transform: translateY(0) rotateZ(1440deg);
   }
 }
 
