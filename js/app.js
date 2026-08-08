@@ -9,6 +9,8 @@ const CoinSide = {
   TAILS: "Tails",
 };
 
+let isFlipping = false;
+
 function flipCoin() {
   var isHeads = Math.random() >= 0.5;
   var result = isHeads ? CoinSide.HEADS : CoinSide.TAILS;
@@ -17,6 +19,9 @@ function flipCoin() {
 }
 
 async function handleFlipClick() {
+  if (isFlipping) return;
+  isFlipping = true;
+
   button.disabled = true;
   resultText.textContent = "Flipping...";
 
@@ -27,6 +32,7 @@ async function handleFlipClick() {
   resultText.textContent = coinFlipResult;
 
   button.disabled = false;
+  isFlipping = false;
 }
 
 button.onclick = handleFlipClick;

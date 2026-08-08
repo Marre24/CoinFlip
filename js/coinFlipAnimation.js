@@ -13,23 +13,36 @@ export function animateCoinFlip(wrapperElement, options = {}) {
       coinImage.style.animationDuration = `${duration}ms`;
     }
 
-    wrapperElement.classList.remove("coin-flipping");
-    void wrapperElement.offsetWidth; // force reflow
-    wrapperElement.classList.add("coin-flipping");
+    let settled = false;
+    let fallbackTimeoutId = null;
 
-    const handleAnimationEnd = (event) => {
-      if (event.target !== wrapperElement) return;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      if (fallbackTimeoutId !== null) {
+        clearTimeout(fallbackTimeoutId);
+        fallbackTimeoutId = null;
+      }
       wrapperElement.removeEventListener("animationend", handleAnimationEnd);
       wrapperElement.classList.remove("coin-flipping");
       resolve();
     };
 
-    wrapperElement.addEventListener("animationend", handleAnimationEnd);
+    const handleAnimationEnd = (event) => {
+      if (event.target !== wrapperElement) return;
+      finish();
+    };
 
-    setTimeout(() => {
-      wrapperElement.removeEventListener("animationend", handleAnimationEnd);
-      wrapperElement.classList.remove("coin-flipping");
-      resolve();
-    }, duration + 100);
+    const startAnimation = () => {
+      wrapperElement.addEventListener("animationend", handleAnimationEnd);
+      wrapperElement.classList.add("coin-flipping");
+
+      fallbackTimeoutId = setTimeout(finish, duration + 100);
+    };
+
+    wrapperElement.classList.remove("coin-flipping");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(startAnimation);
+    });
   });
 }
