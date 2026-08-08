@@ -1,26 +1,3 @@
-/**
- * coinFlipAnimation.js
- *
- * Exports animateCoinFlip(): animates a coin image spinning (rotating on
- * its Y axis) while hopping up and down, then resolves once the animation
- * has fully finished.
- *
- * The actual @keyframes and .coin-flipping class live in css/styles.css —
- * this file just toggles that class and waits for it to finish.
- *
- * Usage:
- *   import { animateCoinFlip } from "./coinFlipAnimation.js";
- *   await animateCoinFlip(coinImage);
- */
-
-/**
- * Animates a coin flip on the given image element.
- *
- * @param {HTMLElement} coinElement - The coin <img> element to animate.
- * @param {Object} [options]
- * @param {number} [options.duration=1200] - Animation duration in ms.
- * @returns {Promise<void>} Resolves once the flip animation has finished.
- */
 export function animateCoinFlip(coinElement, options = {}) {
   const duration = options.duration ?? 1200;
 
