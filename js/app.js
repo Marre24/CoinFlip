@@ -1,13 +1,13 @@
-var button = document.getElementById('flipButton');
-var coin = document.getElementById('coin');
-var resultText = document.getElementById('result');
+import { animateCoinFlip } from "./coinFlipAnimation.js";
+
+const button = document.getElementById("flipButton");
+const coinImage = document.getElementById("coinImage");
+const resultText = document.getElementById("result");
 
 const CoinSide = {
-  HEADS: 'Heads',
-  TAILS: 'Tails'
+  HEADS: "Heads",
+  TAILS: "Tails",
 };
-
-var currentRotation = 0;
 
 function flipCoin() {
   var isHeads = Math.random() >= 0.5;
@@ -16,11 +16,13 @@ function flipCoin() {
   return result;
 }
 
-function handleFlipClick() {
+async function handleFlipClick() {
   button.disabled = true;
-  resultText.textContent = 'Flipping...';
+  resultText.textContent = "Flipping...";
 
   var coinFlipResult = flipCoin();
+
+  await animateCoinFlip(coinImage);
 
   resultText.textContent = coinFlipResult;
 

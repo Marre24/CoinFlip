@@ -9,6 +9,11 @@ h1 {
   margin-bottom: 30px;
 }
 
+#coinImage {
+  width: 120px;
+  height: 120px;
+}
+
 #result {
   font-size: 20px;
   min-height: 28px;
@@ -32,4 +37,28 @@ button:disabled {
 
 button:not(:disabled):hover {
   background: #555;
+}
+
+@keyframes coinFlipAnimation {
+  0% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-60px) rotateY(360deg);
+  }
+  50% {
+    transform: translateY(0) rotateY(720deg);
+  }
+  75% {
+    transform: translateY(-30px) rotateY(1080deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(1440deg);
+  }
+}
+
+.coin-flipping {
+  display: inline-block;
+  animation: coinFlipAnimation 1.2s ease-in-out;
+  will-change: transform;
 }
