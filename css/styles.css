@@ -44,7 +44,7 @@ button:not(:disabled):hover {
     transform: translateY(0) rotateZ(0deg);
   }
   50% {
-    transform: translateY(-60px) rotateZ(720deg);
+    transform: translateY(-160px) rotateZ(720deg);
   }
   100% {
     transform: translateY(0) rotateZ(1440deg);
@@ -53,6 +53,6 @@ button:not(:disabled):hover {
 
 .coin-flipping {
   display: inline-block;
-  animation: coinFlipAnimation 1.2s ease-in-out;
+  animation: coinFlipAnimation 1.2s linear;
   will-change: transform;
 }
