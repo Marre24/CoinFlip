@@ -1,7 +1,7 @@
 import { animateCoinFlip } from "./coinFlipAnimation.js";
 
 const button = document.getElementById("flipButton");
-const coinImage = document.getElementById("coinImage");
+const coinWrapper = document.getElementById("coinWrapper");
 const resultText = document.getElementById("result");
 
 const CoinSide = {
@@ -22,7 +22,7 @@ async function handleFlipClick() {
 
   var coinFlipResult = flipCoin();
 
-  await animateCoinFlip(coinImage);
+  await animateCoinFlip(coinWrapper);
 
   resultText.textContent = coinFlipResult;
 

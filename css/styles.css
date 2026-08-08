@@ -11,6 +11,10 @@ body {
   gap: 20px;
 }
 
+#coinWrapper {
+  display: inline-block;
+}
+
 #coinImage {
   width: 120px;
   height: 120px;
@@ -40,20 +44,39 @@ button:not(:disabled):hover {
   background: #555;
 }
 
-@keyframes coinFlipAnimation {
+@keyframes coinFlipRotate {
   0% {
-    transform: translateY(0) rotateZ(0deg);
-  }
-  50% {
-    transform: translateY(-160px) rotateZ(720deg);
+    transform: rotateZ(0deg);
   }
   100% {
-    transform: translateY(0) rotateZ(1440deg);
+    transform: rotateZ(1440deg);
   }
 }
 
-.coin-flipping {
-  display: inline-block;
-  animation: coinFlipAnimation 1.2s ease-in-out;
+@keyframes coinFlipHop {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-100px);
+  }
+  50% {
+    transform: translateY(-160px);
+  }
+  85% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#coinWrapper.coin-flipping {
+  animation: coinFlipHop 1.2s ease-in-out;
+}
+
+#coinWrapper.coin-flipping #coinImage {
+  display: block;
+  animation: coinFlipRotate 1.2s linear;
   will-change: transform;
 }
