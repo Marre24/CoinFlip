@@ -1,12 +1,14 @@
 body {
   font-family: system-ui, sans-serif;
   text-align: center;
-  padding-top: 60px;
   background: #f4f4f4;
-}
-
-h1 {
-  margin-bottom: 30px;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 #coinImage {
@@ -17,7 +19,6 @@ h1 {
 #result {
   font-size: 20px;
   min-height: 28px;
-  margin-bottom: 20px;
 }
 
 button {
@@ -53,6 +54,6 @@ button:not(:disabled):hover {
 
 .coin-flipping {
   display: inline-block;
-  animation: coinFlipAnimation 1.2s linear;
+  animation: coinFlipAnimation 1.2s ease-in-out;
   will-change: transform;
 }
