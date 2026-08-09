@@ -1,6 +1,6 @@
-export function animateCoinFlip(wrapperElement, options = {}) {
-  const duration = options.duration ?? 1200;
+const duration = 2000;
 
+export function animateCoinFlip(wrapperElement, options = {}) {
   return new Promise((resolve) => {
     if (!wrapperElement) {
       resolve();
