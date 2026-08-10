@@ -1,7 +1,7 @@
 import { animateCoinFlip } from "./coinFlipAnimation.js";
 import { flipCoin } from "./coinFlipper.js";
 import { updateMoney } from "./purse.js";
-import { storeAndGetHeadsInARow } from "./streakStorage.js";
+import { storeAndGetHeadsInARow } from "./flipHistoryRepository.js";
 import { updateMoneyDisplay } from "./purse.js";
 
 const button = document.getElementById("flipButton");
