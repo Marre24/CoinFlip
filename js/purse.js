@@ -10,9 +10,7 @@ export function updateMoney(streak) {
     return;
   }
 
-  const addedMoney = moneyForHeads ** streak;
-  console.log(`Added money: ${addedMoney} for streak: ${streak}`);
-  const newMoney = currentMoney + addedMoney;
+  const newMoney = currentMoney + moneyForHeads ** streak;
   localStorage.setItem("money", newMoney);
   updateMoneyDisplay();
 }
