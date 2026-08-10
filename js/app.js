@@ -11,6 +11,7 @@ const coinWrapper = document.getElementById("coinWrapper");
 const flipDuration = 200;
 
 localStorage.setItem("money", 0);
+localStorage.setItem("coinFlipHistory", "");
 
 let isFlipping = false;
 async function handleFlipClick() {

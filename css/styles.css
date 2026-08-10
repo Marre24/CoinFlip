@@ -6,7 +6,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 #moneyLabel {
@@ -22,14 +21,29 @@ body {
   flex-direction: row;
   align-items: flex-end; /* aligns the button's bottom with the list's bottom */
   width: 100%;
-  /* leave room above so the coin's upward hop doesn't get clipped */
-  padding-top: 160px;
+  /*
+   * Vertically center the whole group (hop clearance + resting stack) in
+   * the viewport, computed explicitly so the coin's hop peak never gets
+   * pushed off the top of the screen:
+   *
+   *   hop clearance          160px  (coin's max upward translateY)
+   * + coin image height      120px
+   * + coinColumn gap          20px
+   * + button height (approx) 52px  (font-size 16 + padding 10*2 + border)
+   * -----------------------------
+   *   total group height     352px
+   *
+   * To center a 352px block vertically: top offset = 50vh - 352px/2
+   */
+  margin-top: calc(50vh - 176px);
 }
 
 #coinZone {
   flex: 2; /* takes up 2/3 of the row */
   display: flex;
   justify-content: center; /* centers coinColumn within this 2/3 */
+  /* reserve headroom for the coin's 160px upward hop */
+  padding-top: 160px;
 }
 
 #listZone {
@@ -52,6 +66,7 @@ body {
 #coinImage {
   width: 120px;
   height: 120px;
+  display: block;
 }
 
 #historyList {
@@ -63,6 +78,15 @@ body {
   gap: 6px;
   width: 160px;
   text-align: left;
+  /*
+   * Fixed height sized for the max 10 entries (each ~24px: font-size 16px
+   * line-height + 4px top/bottom padding, plus 9 gaps of 6px between
+   * items) so the list's box size never changes as entries are added.
+   * Without this, align-items: flex-end on #gameArea would shift the
+   * whole row every time the list grows, causing the coin/button to jump.
+   */
+  height: 294px;
+  justify-content: flex-end; /* entries fill from the bottom up */
 }
 
 #historyList li {
@@ -169,7 +193,6 @@ button:not(:disabled):hover {
 }
 
 #coinWrapper.coin-flipping #coinImage {
-  display: block;
   animation: coinFlipRotate 1.2s linear;
   will-change: transform;
 }
