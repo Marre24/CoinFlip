@@ -9,14 +9,23 @@
   </head>
 
   <body>
-    <div id="coinWrapper">
-      <img id="coinImage" src="assets/img/coin.png" alt="Coin" />
-    </div>
-
-    <ul id="historyList"></ul>
     <p id="moneyLabel">$0</p>
 
-    <button id="flipButton">Flip Coin</button>
+    <div id="gameArea">
+      <div id="coinZone">
+        <div id="coinColumn">
+          <div id="coinWrapper">
+            <img id="coinImage" src="assets/img/coin.png" alt="Coin" />
+          </div>
+
+          <button id="flipButton">Flip Coin</button>
+        </div>
+      </div>
+
+      <div id="listZone">
+        <ul id="historyList"></ul>
+      </div>
+    </div>
 
     <script type="module" src="js/app.js"></script>
   </body>

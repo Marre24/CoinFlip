@@ -6,8 +6,42 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+}
+
+#moneyLabel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  margin: 0;
+}
+
+#gameArea {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; /* aligns the button's bottom with the list's bottom */
+  width: 100%;
+  /* leave room above so the coin's upward hop doesn't get clipped */
+  padding-top: 160px;
+}
+
+#coinZone {
+  flex: 2; /* takes up 2/3 of the row */
+  display: flex;
+  justify-content: center; /* centers coinColumn within this 2/3 */
+}
+
+#listZone {
+  flex: 1; /* takes up 1/3 of the row */
+  display: flex;
+  justify-content: center; /* centers historyList within this 1/3 */
+}
+
+#coinColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
@@ -20,9 +54,20 @@ body {
   height: 120px;
 }
 
-#result {
-  font-size: 20px;
-  min-height: 28px;
+#historyList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 160px;
+  text-align: left;
+}
+
+#historyList li {
+  font-size: 16px;
+  padding: 4px 0;
 }
 
 button {
