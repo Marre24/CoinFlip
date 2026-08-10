@@ -1,4 +1,4 @@
-const CoinSide = {
+export const CoinSide = {
   HEADS: "Heads",
   TAILS: "Tails",
 };

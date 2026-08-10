@@ -1,5 +1,6 @@
 import { animateCoinFlip } from "./coinFlipAnimation.js";
 import { flipCoin } from "./coinFlipper.js";
+import { updateMoney } from "./purse.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
@@ -16,7 +17,9 @@ async function handleFlipClick() {
   resultText.textContent = "Flipping...";
   await animateCoinFlip(coinWrapper, flipDuration);
 
-  resultText.textContent = flipCoin();
+  const result = flipCoin();
+  updateMoney(result);
+  resultText.textContent = result;
 
   button.disabled = false;
   isFlipping = false;
