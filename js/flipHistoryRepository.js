@@ -12,7 +12,7 @@ function saveHistory(flipHistory) {
   localStorage.setItem(STORAGE_KEY, flipHistory.toJSON());
 }
 
-function getHistory() {
+export function getHistory() {
   const json = localStorage.getItem(STORAGE_KEY);
   if (!json) return new FlipHistory();
   try {

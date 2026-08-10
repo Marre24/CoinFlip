@@ -3,10 +3,10 @@ import { flipCoin } from "./coinFlipper.js";
 import { updateMoney } from "./purse.js";
 import { storeAndGetHeadsInARow } from "./flipHistoryRepository.js";
 import { updateMoneyDisplay } from "./purse.js";
+import { renderHistory } from "./flipHistoryService.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
-const resultText = document.getElementById("result");
 
 const flipDuration = 200;
 
@@ -18,13 +18,12 @@ async function handleFlipClick() {
   isFlipping = true;
   button.disabled = true;
 
-  resultText.textContent = "Flipping...";
   await animateCoinFlip(coinWrapper, flipDuration);
 
   const result = flipCoin();
   const headsInARow = storeAndGetHeadsInARow(result);
   updateMoney(headsInARow);
-  resultText.textContent = result;
+  renderHistory();
 
   button.disabled = false;
   isFlipping = false;
@@ -33,3 +32,4 @@ async function handleFlipClick() {
 button.onclick = handleFlipClick;
 
 updateMoneyDisplay();
+renderHistory();
