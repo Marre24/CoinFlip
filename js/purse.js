@@ -1,16 +1,24 @@
 import { CoinSide } from "./coinFlipper.js";
 
 const moneyLabel = document.getElementById("moneyLabel");
-const moneyForHeads = 10;
+const moneyForHeads = 2;
 
-export function updateMoney(result) {
-  const storage = localStorage.getItem("money") || 0;
-  const currentMoney = parseInt(storage, 10);
+export function updateMoney(streak) {
+  const currentMoney = parseInt(localStorage.getItem("money")) || 0;
 
-  if (result === CoinSide.TAILS) {
+  if (streak === 0) {
     return;
   }
-  const newMoney = currentMoney + moneyForHeads;
+
+  const addedMoney = moneyForHeads ** streak;
+  console.log(`Added money: ${addedMoney} for streak: ${streak}`);
+  const newMoney = currentMoney + addedMoney;
   localStorage.setItem("money", newMoney);
-  moneyLabel.textContent = "$" + newMoney;
+  updateMoneyDisplay();
+}
+
+export function updateMoneyDisplay() {
+  const currentMoney = parseInt(localStorage.getItem("money")) || 0;
+
+  moneyLabel.textContent = "$" + currentMoney;
 }
