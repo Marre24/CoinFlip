@@ -1,6 +1,6 @@
-const duration = 2000;
-
-export function animateCoinFlip(wrapperElement) {
+export function animateCoinFlip(wrapperElement, duration) {
+  const jitter = duration * 0.1;
+  duration += Math.random() * (2 * jitter) - jitter;
   return new Promise((resolve) => {
     if (!wrapperElement) {
       resolve();

@@ -18,6 +18,8 @@ function flipCoin() {
   return result;
 }
 
+const flipDuration = 2000;
+
 async function handleFlipClick() {
   if (isFlipping) return;
   isFlipping = true;
@@ -27,7 +29,7 @@ async function handleFlipClick() {
 
   var coinFlipResult = flipCoin();
 
-  await animateCoinFlip(coinWrapper);
+  await animateCoinFlip(coinWrapper, flipDuration);
 
   resultText.textContent = coinFlipResult;
 
