@@ -5,7 +5,7 @@ const STORAGE_KEY = "coinFlipHistory";
 export function storeAndGetHeadsInARow(result) {
   const updatedStorage = getHistory().add(result);
   saveHistory(updatedStorage);
-  return updatedStorage.getStreak();
+  return updatedStorage.getStreak() - 1;
 }
 
 function saveHistory(flipHistory) {
