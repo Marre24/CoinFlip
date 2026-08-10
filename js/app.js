@@ -1,25 +1,13 @@
 import { animateCoinFlip } from "./coinFlipAnimation.js";
+import { flipCoin } from "./coinFlipper.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
 const resultText = document.getElementById("result");
 
-const CoinSide = {
-  HEADS: "Heads",
-  TAILS: "Tails",
-};
-
-let isFlipping = false;
-
-function flipCoin() {
-  var isHeads = Math.random() >= 0.5;
-  var result = isHeads ? CoinSide.HEADS : CoinSide.TAILS;
-  console.log(result);
-  return result;
-}
-
 const flipDuration = 2000;
 
+let isFlipping = false;
 async function handleFlipClick() {
   if (isFlipping) return;
   isFlipping = true;
