@@ -23,15 +23,12 @@ const flipDuration = 2000;
 async function handleFlipClick() {
   if (isFlipping) return;
   isFlipping = true;
-
   button.disabled = true;
+
   resultText.textContent = "Flipping...";
-
-  var coinFlipResult = flipCoin();
-
   await animateCoinFlip(coinWrapper, flipDuration);
 
-  resultText.textContent = coinFlipResult;
+  resultText.textContent = flipCoin();
 
   button.disabled = false;
   isFlipping = false;
