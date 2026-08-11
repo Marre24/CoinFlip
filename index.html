@@ -11,19 +11,26 @@
   <body>
     <p id="moneyLabel">$0</p>
 
-    <div id="gameArea">
-      <div id="coinZone">
-        <div id="coinColumn">
-          <div id="coinWrapper">
-            <img id="coinImage" src="assets/img/coin.png" alt="Coin" />
-          </div>
-
-          <button id="flipButton">Flip Coin</button>
-        </div>
+    <div id="gameWrapper">
+      <div id="streakDisplay">
+        <p id="currentStreak">Current Streak: 0</p>
+        <p id="maxStreak">Max Streak: 0</p>
       </div>
 
-      <div id="listZone">
-        <ul id="historyList"></ul>
+      <div id="gameArea">
+        <div id="coinZone">
+          <div id="coinColumn">
+            <div id="coinWrapper">
+              <img id="coinImage" src="assets/img/coin.png" alt="Coin" />
+            </div>
+
+            <button id="flipButton">Flip Coin</button>
+          </div>
+        </div>
+
+        <div id="listZone">
+          <ul id="historyList"></ul>
+        </div>
       </div>
     </div>
 
