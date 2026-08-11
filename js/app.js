@@ -4,6 +4,7 @@ import { updateMoney } from "./purse.js";
 import { storeAndGetHeadsInARow } from "./flipHistoryRepository.js";
 import { updateMoneyDisplay } from "./purse.js";
 import { renderHistory } from "./flipHistoryService.js";
+import { showMoneyAddedEffect } from "./visualEffects.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
@@ -23,7 +24,8 @@ async function handleFlipClick() {
 
   const result = flipCoin();
   const headsInARow = storeAndGetHeadsInARow(result);
-  updateMoney(headsInARow);
+  const moneyAdded = updateMoney(headsInARow);
+  if (moneyAdded !== undefined) showMoneyAddedEffect(moneyAdded);
   renderHistory();
 
   button.disabled = false;
