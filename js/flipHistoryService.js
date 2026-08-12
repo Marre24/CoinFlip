@@ -1,6 +1,8 @@
 import { getHistory } from "./flipHistoryRepository.js";
 
 const historyList = document.getElementById("historyList");
+const currentStreakLabel = document.getElementById("currentStreak");
+const maxStreakLabel = document.getElementById("maxStreak");
 
 export function renderHistory() {
   const history = getHistory().history;
@@ -10,4 +12,11 @@ export function renderHistory() {
     item.textContent = entry;
     historyList.appendChild(item);
   }
+}
+
+export function updateStreakDisplay() {
+  const currentStreak = getHistory().getStreak();
+  const maxStreak = getHistory().getMaxStreak();
+  currentStreakLabel.textContent = `Current Streak: ${currentStreak}`;
+  maxStreakLabel.textContent = `Max Streak: ${maxStreak.toString()}`;
 }

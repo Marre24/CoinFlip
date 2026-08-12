@@ -37,6 +37,24 @@ export class FlipHistory {
     return streak;
   }
 
+  getMaxStreak() {
+    let maxStreak = 0;
+    let streak = 0;
+
+    for (const entry of this.#entries) {
+      if (entry === CoinSide.HEADS) {
+        streak++;
+        if (streak > maxStreak) {
+          maxStreak = streak;
+        }
+      } else {
+        streak = 0;
+      }
+    }
+
+    return maxStreak;
+  }
+
   toJSON() {
     return JSON.stringify(this.#entries);
   }
