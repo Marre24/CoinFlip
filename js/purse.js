@@ -1,4 +1,4 @@
-import { CoinSide } from "./coinFlipper.js";
+import { CoinSide } from "./coin/coinFlipper.js";
 
 const moneyLabel = document.getElementById("moneyLabel");
 const moneyForHeads = 2;

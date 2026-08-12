@@ -1,4 +1,4 @@
-import { CoinSide } from "./coinFlipper.js";
+import { CoinSide } from "./coin/coinFlipper.js";
 
 export class FlipHistory {
   #amountOfEntriesInHistory = 10;

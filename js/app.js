@@ -1,5 +1,5 @@
 import { animateCoinFlip } from "./coinFlipAnimation.js";
-import { flipCoin } from "./coinFlipper.js";
+import { flipCoin } from "./coin/coinFlipper.js";
 import { updateMoney } from "./purse.js";
 import { storeAndGetHeadsInARow } from "./flipHistoryRepository.js";
 import { updateMoneyDisplay } from "./purse.js";
