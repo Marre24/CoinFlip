@@ -1,4 +1,4 @@
-import { FlipHistory } from "./flipHistory.js";
+import { FlipHistory } from "./flipHistory/flipHistory.js";
 
 const STORAGE_KEY = "coinFlipHistory";
 
