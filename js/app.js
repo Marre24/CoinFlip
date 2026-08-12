@@ -1,11 +1,11 @@
 import { animateCoinFlip } from "./coin/coinFlipAnimation.js";
 import { flipCoin } from "./coin/coinFlipper.js";
-import { updateMoney } from "./purse.js";
+import { updateMoney } from "./coin/purse.js";
 import { storeAndGetHeadsInARow } from "./flipHistory/flipHistoryRepository.js";
-import { updateMoneyDisplay } from "./purse.js";
+import { updateMoneyDisplay } from "./coin/purse.js";
 import { renderHistory } from "./flipHistory/flipHistoryService.js";
 import { updateStreakDisplay } from "./flipHistory/flipHistoryService.js";
-import { showMoneyAddedEffect } from "./visualEffects.js";
+import { showMoneyAddedEffect } from "./vfx/visualEffects.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
