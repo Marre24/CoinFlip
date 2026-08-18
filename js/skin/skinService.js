@@ -25,3 +25,7 @@ export function getHeadsFor(skin) {
 export function getPriceForSkin(skin) {
   return priceMap[skin] || 0;
 }
+
+export function getLockedSkin() {
+  return "./assets/img/LockedCoin.png";
+}

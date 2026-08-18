@@ -4,21 +4,32 @@ import { getPriceForSkin } from "../skin/skinService.js";
 import { currentMoney } from "../coin/purse.js";
 import { deductMoney } from "../coin/purse.js";
 import { showCurrentSkin } from "../skin/skinService.js";
+import { getLockedSkin } from "../skin/skinService.js";
 
 const shopModal = document.getElementById("shopModal");
+const shopItems = document.querySelectorAll(".shopItem");
 
 export function renderShop() {
   const ownedSkins = getOwnedSkins();
   ownedSkins.push(SkinType.BRONZE);
 
-  ownedSkins.forEach((skin) => {
-    const skinElement = document.getElementById(skin);
-    if (!skinElement) {
+  shopItems.forEach((item) => {
+    const skin = Object.values(SkinType).find((value) => value === item.id);
+    if (!skin) {
       return;
     }
-    skinElement.querySelector(".itemLabel").textContent = skin;
-    skinElement.querySelector("img").src = getHeadsFor(skin);
+
+    const price = getPriceForSkin(skin);
+    if (ownedSkins.includes(skin)) {
+      item.querySelector(".itemLabel").textContent = skin;
+      item.querySelector("img").src = getHeadsFor(skin);
+      return;
+    }
+    item.querySelector(".itemLabel").textContent = price + "$";
+    item.querySelector("img").src = getLockedSkin();
   });
+
+  getPriceForSkin;
 
   shopModal.showModal();
 }
