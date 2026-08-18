@@ -6,7 +6,7 @@ import { updateMoneyDisplay } from "./coin/purse.js";
 import { renderHistory } from "./flipHistory/flipHistoryService.js";
 import { updateStreakDisplay } from "./flipHistory/flipHistoryService.js";
 import { showMoneyAddedEffect } from "./vfx/visualEffects.js";
-import { showCoinSide } from "./vfx/skinService.js";
+import { showCoinSide } from "./skin/skinService.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
