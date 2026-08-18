@@ -10,6 +10,7 @@ import { showCoinSide } from "./skin/skinService.js";
 import { renderShop } from "./shop/shopService.js";
 import { SkinType } from "./skin/skinRepository.js";
 import { selectOrBuy } from "./shop/shopService.js";
+import { showCurrentSkin } from "./skin/skinService.js";
 
 const flipButton = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
@@ -63,3 +64,4 @@ closeShop.addEventListener("click", () => {
 
 updateMoneyDisplay();
 renderHistory();
+showCurrentSkin();
