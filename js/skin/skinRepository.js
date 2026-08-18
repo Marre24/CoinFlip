@@ -23,12 +23,12 @@ const skinMap = {
   },
 };
 
-export function getSkinType() {
+function currentSkinType() {
   const stored = localStorage.getItem("skinType");
   const isValid = Object.values(SkinType).includes(stored);
   return isValid ? stored : DEFAULT_SKIN;
 }
 
-export function getSkinForCoinSide(coinSide, skinType) {
-  return skinMap[skinType][coinSide];
+export function getCoinSideWithCurrentSkin(coinSide) {
+  return skinMap[currentSkinType()][coinSide];
 }
