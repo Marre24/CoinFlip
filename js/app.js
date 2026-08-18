@@ -6,6 +6,7 @@ import { updateMoneyDisplay } from "./coin/purse.js";
 import { renderHistory } from "./flipHistory/flipHistoryService.js";
 import { updateStreakDisplay } from "./flipHistory/flipHistoryService.js";
 import { showMoneyAddedEffect } from "./vfx/visualEffects.js";
+import { showCoinSide } from "./vfx/skinService.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
@@ -24,6 +25,7 @@ async function handleFlipClick() {
   await animateCoinFlip(coinWrapper, flipDuration);
 
   const result = flipCoin();
+  showCoinSide(result);
   const headsInARow = storeAndGetHeadsInARow(result);
   const moneyAdded = updateMoney(headsInARow);
   if (moneyAdded !== undefined) showMoneyAddedEffect(moneyAdded);
