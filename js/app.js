@@ -10,6 +10,9 @@ import { showCoinSide } from "./skin/skinService.js";
 
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
+const shopIcon = document.getElementById("shopIcon");
+const shopModal = document.getElementById("shopModal");
+const closeShop = document.getElementById("closeShop");
 
 const flipDuration = 1000;
 
@@ -36,6 +39,14 @@ async function handleFlipClick() {
 }
 
 button.onclick = handleFlipClick;
+
+shopIcon.addEventListener("click", () => {
+  shopModal.showModal();
+});
+
+closeShop.addEventListener("click", () => {
+  shopModal.close();
+});
 
 updateMoneyDisplay();
 renderHistory();
