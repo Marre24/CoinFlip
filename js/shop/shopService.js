@@ -5,6 +5,7 @@ const shopModal = document.getElementById("shopModal");
 
 export function renderShop() {
   const ownedSkins = JSON.parse(localStorage.getItem("ownedSkins")) || [];
+  ownedSkins.push(SkinType.BRONZE);
 
   ownedSkins.forEach((skin) => {
     const skinElement = document.getElementById(skin);
