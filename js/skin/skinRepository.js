@@ -6,6 +6,8 @@ export const SkinType = {
   GOLD: "Gold",
 };
 
+const DEFAULT_SKIN = SkinType.BRONZE;
+
 const skinMap = {
   [SkinType.BRONZE]: {
     [CoinSide.HEADS]: "../../assets/img/BronzeCoinHeads.png",
@@ -22,8 +24,9 @@ const skinMap = {
 };
 
 export function getSkinType() {
-  const skinType = localStorage.getItem("skinType");
-  return skinType;
+  const stored = localStorage.getItem("skinType");
+  const isValid = Object.values(SkinType).includes(stored);
+  return isValid ? stored : DEFAULT_SKIN;
 }
 
 export function getSkinForCoinSide(coinSide, skinType) {
