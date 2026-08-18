@@ -223,3 +223,15 @@ button:not(:disabled):hover {
     opacity: 0;
   }
 }
+
+#shopIcon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
