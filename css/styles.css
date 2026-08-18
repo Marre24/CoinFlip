@@ -251,9 +251,30 @@ button:not(:disabled):hover {
   margin-top: 0;
 }
 
-#shopButtons {
+#shopGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.shopItem {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.shopItem img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.itemLabel {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
 }
