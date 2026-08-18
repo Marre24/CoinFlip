@@ -8,7 +8,7 @@ import { updateStreakDisplay } from "./flipHistory/flipHistoryService.js";
 import { showMoneyAddedEffect } from "./vfx/visualEffects.js";
 import { showCoinSide } from "./skin/skinService.js";
 
-const button = document.getElementById("flipButton");
+const flipButton = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
 const shopIcon = document.getElementById("shopIcon");
 const shopModal = document.getElementById("shopModal");
@@ -22,7 +22,7 @@ let isFlipping = false;
 async function handleFlipClick() {
   if (isFlipping) return;
   isFlipping = true;
-  button.disabled = true;
+  flipButton.disabled = true;
 
   await animateCoinFlip(coinWrapper, flipDuration);
 
@@ -34,11 +34,11 @@ async function handleFlipClick() {
   renderHistory();
   updateStreakDisplay();
 
-  button.disabled = false;
+  flipButton.disabled = false;
   isFlipping = false;
 }
 
-button.onclick = handleFlipClick;
+flipButton.onclick = handleFlipClick;
 
 shopIcon.addEventListener("click", () => {
   shopModal.showModal();
