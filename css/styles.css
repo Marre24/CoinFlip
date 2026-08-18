@@ -125,7 +125,7 @@ button:not(:disabled):hover {
     transform: rotateZ(0deg);
   }
   100% {
-    transform: rotateZ(1440deg);
+    transform: rotateZ(720deg);
   }
 }
 

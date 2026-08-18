@@ -11,7 +11,7 @@ import { showCoinSide } from "./skin/skinService.js";
 const button = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
 
-const flipDuration = 200;
+const flipDuration = 1000;
 
 localStorage.setItem("money", 0);
 localStorage.setItem("coinFlipHistory", "");
