@@ -235,3 +235,25 @@ button:not(:disabled):hover {
   background: none;
   cursor: pointer;
 }
+
+#shopModal {
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  min-width: 240px;
+}
+
+#shopModal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#shopModal h2 {
+  margin-top: 0;
+}
+
+#shopButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
