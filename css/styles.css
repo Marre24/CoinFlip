@@ -68,9 +68,10 @@ body {
 }
 
 #coinImage {
-  width: 120px;
-  height: 120px;
+  width: 128px;
+  height: 128px;
   display: block;
+  image-rendering: pixelated;
 }
 
 #historyList {
