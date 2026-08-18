@@ -9,12 +9,14 @@ import { showMoneyAddedEffect } from "./vfx/visualEffects.js";
 import { showCoinSide } from "./skin/skinService.js";
 import { renderShop } from "./shop/shopService.js";
 import { SkinType } from "./skin/skinRepository.js";
+import { selectOrBuy } from "./shop/shopService.js";
 
 const flipButton = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
 const shopIcon = document.getElementById("shopIcon");
 const shopModal = document.getElementById("shopModal");
 const closeShop = document.getElementById("closeShop");
+const shopGrid = document.getElementById("shopGrid");
 
 const flipDuration = 1000;
 
@@ -41,6 +43,15 @@ async function handleFlipClick() {
 }
 
 flipButton.onclick = handleFlipClick;
+
+shopGrid.addEventListener("click", (e) => {
+  const shopItem = e.target.closest(".shopItem");
+  if (!shopItem) return;
+
+  const skin = Object.values(SkinType).find((value) => value === shopItem.id);
+  if (!skin) return;
+  selectOrBuy(skin);
+});
 
 shopIcon.addEventListener("click", () => {
   renderShop();
