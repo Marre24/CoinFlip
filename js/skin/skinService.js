@@ -27,5 +27,5 @@ export function getPriceForSkin(skin) {
 }
 
 export function getLockedSkin() {
-  return "./assets/img/LockedCoin.png";
+  return "assets/img/LockedCoin.png";
 }
