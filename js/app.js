@@ -19,7 +19,7 @@ const shopModal = document.getElementById("shopModal");
 const closeShop = document.getElementById("closeShop");
 const shopGrid = document.getElementById("shopGrid");
 
-const flipDuration = 1000;
+const flipDuration = 700;
 
 localStorage.setItem("coinFlipHistory", "");
 
