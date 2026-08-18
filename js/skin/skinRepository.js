@@ -32,3 +32,7 @@ function currentSkinType() {
 export function getCoinSideWithCurrentSkin(coinSide) {
   return skinMap[currentSkinType()][coinSide];
 }
+
+export function headsSideForSkin(skin) {
+  return skinMap[skin][CoinSide.HEADS];
+}

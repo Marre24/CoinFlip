@@ -1,4 +1,5 @@
 import { SkinType } from "../skin/skinRepository.js";
+import { getHeadsFor } from "../skin/skinService.js";
 
 const shopModal = document.getElementById("shopModal");
 
@@ -7,9 +8,11 @@ export function renderShop() {
 
   ownedSkins.forEach((skin) => {
     const skinElement = document.getElementById(skin);
-    if (skinElement) {
-      skinElement.querySelector(".itemLabel").textContent = skin;
+    if (!skinElement) {
+      return;
     }
+    skinElement.querySelector(".itemLabel").textContent = skin;
+    skinElement.querySelector("img").src = getHeadsFor(skin);
   });
 
   shopModal.showModal();
