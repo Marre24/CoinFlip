@@ -1,8 +1,8 @@
 import { SkinType } from "../skin/skinRepository.js";
 import { getHeadsFor } from "../skin/skinService.js";
 import { getPriceForSkin } from "../skin/skinService.js";
-import { currentMoney } from "../coin/purse.js";
-import { deductMoney } from "../coin/purse.js";
+import { currentMoney } from "../coin/moneyService.js";
+import { deductMoney } from "../coin/moneyService.js";
 import { showCurrentSkin } from "../skin/skinService.js";
 import { getLockedSkin } from "../skin/skinService.js";
 

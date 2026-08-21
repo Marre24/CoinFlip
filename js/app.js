@@ -1,8 +1,8 @@
 import { animateCoinFlip } from "./coin/coinFlipAnimation.js";
 import { flipCoin } from "./coin/coinFlipper.js";
-import { updateMoney } from "./coin/purse.js";
+import { updateMoney } from "./coin/moneyService.js";
 import { storeAndGetHeadsInARow } from "./flipHistory/flipHistoryRepository.js";
-import { updateMoneyDisplay } from "./coin/purse.js";
+import { updateMoneyDisplay } from "./coin/moneyService.js";
 import { renderHistory } from "./flipHistory/flipHistoryService.js";
 import { updateStreakDisplay } from "./flipHistory/flipHistoryService.js";
 import { showMoneyAddedEffect } from "./vfx/visualEffects.js";
