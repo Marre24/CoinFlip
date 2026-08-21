@@ -1,6 +1,7 @@
 import { CoinSide } from "../coin/coinFlipper.js";
 import { showMoneyRemovedEffect } from "../vfx/visualEffects.js";
 import { currentMoney } from "./moneyRepository.js";
+import { store } from "./moneyRepository.js";
 
 const moneyLabel = document.getElementById("moneyLabel");
 const moneyForHeads = 2;
@@ -14,7 +15,7 @@ export function updateMoney(streak) {
 
   const moneyForFlip = moneyForHeads ** streak;
   const newMoney = cm + moneyForFlip;
-  localStorage.setItem("money", newMoney);
+  store(newMoney);
   updateMoneyDisplay();
   return moneyForFlip;
 }
@@ -32,7 +33,7 @@ export function updateMoneyDisplay() {
 export function deductMoney(amount) {
   const cm = currentMoney();
   const newMoney = cm - amount;
-  localStorage.setItem("money", newMoney);
+  store(newMoney);
   updateMoneyDisplay();
   showMoneyRemovedEffect(amount);
 }
