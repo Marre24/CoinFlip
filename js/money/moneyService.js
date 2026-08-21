@@ -2,6 +2,7 @@ import { CoinSide } from "../coin/coinFlipper.js";
 import { showMoneyRemovedEffect } from "../vfx/visualEffects.js";
 import { currentMoney } from "./moneyRepository.js";
 import { store } from "./moneyRepository.js";
+import { deductFromBalance } from "./moneyRepository.js";
 
 const moneyLabel = document.getElementById("moneyLabel");
 const moneyForHeads = 2;
@@ -31,9 +32,7 @@ export function updateMoneyDisplay() {
 }
 
 export function deductMoney(amount) {
-  const cm = currentMoney();
-  const newMoney = cm - amount;
-  store(newMoney);
+  deductFromBalance(amount);
   updateMoneyDisplay();
   showMoneyRemovedEffect(amount);
 }
