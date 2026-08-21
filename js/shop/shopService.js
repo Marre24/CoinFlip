@@ -1,7 +1,7 @@
 import { SkinType } from "../skin/skinRepository.js";
 import { getHeadsFor } from "../skin/skinService.js";
 import { getPriceForSkin } from "../skin/skinService.js";
-import { currentMoney } from "../money/moneyService.js";
+import { hasEnoughMoneyFor } from "../money/moneyService.js";
 import { deductMoney } from "../money/moneyService.js";
 import { showCurrentSkin } from "../skin/skinService.js";
 import { getLockedSkin } from "../skin/skinService.js";
@@ -43,7 +43,7 @@ export function selectOrBuy(skin) {
     return;
   }
 
-  if (!hasEnoughMoneyFor(skin)) {
+  if (!hasEnoughMoneyFor(getPriceForSkin(skin))) {
     return;
   }
 
@@ -57,10 +57,4 @@ export function selectOrBuy(skin) {
 
 function getOwnedSkins() {
   return JSON.parse(localStorage.getItem("ownedSkins")) || [];
-}
-
-function hasEnoughMoneyFor(skin) {
-  const price = getPriceForSkin(skin);
-  const cm = currentMoney();
-  return cm >= price;
 }
