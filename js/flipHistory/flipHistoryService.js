@@ -20,3 +20,7 @@ export function updateStreakDisplay() {
   currentStreakLabel.textContent = `Current Streak: ${currentStreak}`;
   maxStreakLabel.textContent = `Max Streak: ${maxStreak.toString()}`;
 }
+
+export function flipHistory() {
+  return getHistory();
+}
