@@ -4,5 +4,6 @@ const headsProcentLabel = document.getElementById("headsPercent");
 
 export function updateStats() {
   const headsProcent = getHistory().getHeadsProcent();
-  headsProcentLabel.textContent = `Heads: ${headsProcent}%`;
+  const formattedProcent = headsProcent.toFixed(2);
+  headsProcentLabel.textContent = `Heads: ${formattedProcent}%`;
 }
