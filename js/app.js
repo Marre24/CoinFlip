@@ -1,6 +1,6 @@
 import { animateCoinFlip } from "./coin/coinFlipAnimation.js";
 import { flipCoin } from "./coin/coinFlipper.js";
-import { updateMoney } from "./money/moneyService.js";
+import { addMoneyFromStreak } from "./money/moneyService.js";
 import { storeAndGetHeadsInARow } from "./flipHistory/flipHistoryRepository.js";
 import { updateMoneyDisplay } from "./money/moneyService.js";
 import { renderHistory } from "./flipHistory/flipHistoryService.js";
@@ -35,7 +35,7 @@ async function handleFlipClick() {
   const result = flipCoin();
   showCoinSide(result);
   const headsInARow = storeAndGetHeadsInARow(result);
-  const moneyAdded = updateMoney(headsInARow);
+  const moneyAdded = addMoneyFromStreak(headsInARow);
   if (moneyAdded !== undefined) showMoneyAddedEffect(moneyAdded);
   renderHistory();
   updateStreakDisplay();

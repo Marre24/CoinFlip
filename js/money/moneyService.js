@@ -7,7 +7,7 @@ import { deductFromBalance } from "./moneyRepository.js";
 const moneyLabel = document.getElementById("moneyLabel");
 const moneyForHeads = 2;
 
-export function updateMoney(streak) {
+export function addMoneyFromStreak(streak) {
   if (streak === -1) {
     return;
   }
