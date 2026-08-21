@@ -1,4 +1,4 @@
-import { CoinSide } from "./coinFlipper.js";
+import { CoinSide } from "../coin/coinFlipper.js";
 import { showMoneyRemovedEffect } from "../vfx/visualEffects.js";
 
 const moneyLabel = document.getElementById("moneyLabel");
