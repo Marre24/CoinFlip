@@ -55,6 +55,16 @@ export class FlipHistory {
     return maxStreak;
   }
 
+  getHeadsProcent() {
+    const totalFlips = this.#entries.length;
+    if (totalFlips === 0) return 0;
+
+    const headsCount = this.#entries.filter(
+      (entry) => entry === CoinSide.HEADS,
+    ).length;
+    return (headsCount / totalFlips) * 100;
+  }
+
   toJSON() {
     return JSON.stringify(this.#entries);
   }

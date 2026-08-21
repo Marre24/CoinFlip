@@ -11,6 +11,7 @@ import { renderShop } from "./shop/shopService.js";
 import { SkinType } from "./skin/skinRepository.js";
 import { selectOrBuy } from "./shop/shopService.js";
 import { showCurrentSkin } from "./skin/skinService.js";
+import { updateStats } from "./stats/statsService.js";
 
 const flipButton = document.getElementById("flipButton");
 const coinWrapper = document.getElementById("coinWrapper");
@@ -40,6 +41,7 @@ async function handleFlipClick() {
   if (moneyAdded !== undefined) showMoneyAddedEffect(moneyAdded);
   renderHistory();
   updateStreakDisplay();
+  updateStats();
 
   flipButton.disabled = false;
   isFlipping = false;
