@@ -1,4 +1,5 @@
 import { CoinSide } from "./coinFlipper.js";
+import { showMoneyRemovedEffect } from "../vfx/visualEffects.js";
 
 const moneyLabel = document.getElementById("moneyLabel");
 const moneyForHeads = 2;
@@ -32,4 +33,5 @@ export function deductMoney(amount) {
   const newMoney = cm - amount;
   localStorage.setItem("money", newMoney);
   updateMoneyDisplay();
+  showMoneyRemovedEffect(amount);
 }

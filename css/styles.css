@@ -224,6 +224,26 @@ button:not(:disabled):hover {
   }
 }
 
+.money-removed-effect {
+  position: fixed;
+  font-size: 18px;
+  font-weight: bold;
+  color: #c62828;
+  pointer-events: none;
+  animation: moneyRemovedFloat 1s ease-out forwards;
+}
+
+@keyframes moneyRemovedFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
 #shopIcon {
   position: absolute;
   top: 20px;
