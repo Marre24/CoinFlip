@@ -22,9 +22,7 @@ const shopGrid = document.getElementById("shopGrid");
 
 const flipDuration = 800;
 
-localStorage.clear();
 localStorage.setItem("coinFlipHistory", "");
-localStorage.setItem("money", "1000");
 
 let isFlipping = false;
 async function handleFlipClick() {
